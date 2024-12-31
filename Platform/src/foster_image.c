@@ -14,29 +14,31 @@
 #define QOI_FREE(p) STBI_FREE(p) 
 #include "third_party/qoi.h"
 
+/*
 bool FosterImage_TestQOI(const unsigned char* data, int length);
 unsigned char* FosterImage_LoadQOI(const unsigned char* data, int length, int* w, int * h);
 bool FosterImage_WriteQOI(FosterWriteFn* func, void* context, int w, int h, const void* data);
+*/
 
 unsigned char* FosterImageLoad(const unsigned char* data, int length, int* w, int* h)
 {
+	/*
 	// Test for QOI image first
 	if (FosterImage_TestQOI(data, length))
 	{
 		return FosterImage_LoadQOI(data, length, w, h);
 	}
+	*/
 	// fallback to normal stb image loading (png, bmp, etc)
-	else
-	{
-		int c;
-		return stbi_load_from_memory(data, length, w, h, &c, 4);
-	}
+	int c;
+	return stbi_load_from_memory(data, length, w, h, &c, 4);
 }
 
 void FosterImageFree(unsigned char* data)
 {
 	stbi_image_free(data);
 }
+/*
 
 FosterBool FosterImageWrite(FosterWriteFn* func, void* context, FosterImageWriteFormat format, int w, int h, const void* data)
 {
@@ -50,6 +52,7 @@ FosterBool FosterImageWrite(FosterWriteFn* func, void* context, FosterImageWrite
 	}
 	return false;
 }
+
 
 bool FosterImage_TestQOI(const unsigned char* data, int length)
 {
@@ -98,3 +101,5 @@ bool FosterImage_WriteQOI(FosterWriteFn* func, void* context, int w, int h, cons
 
 	return false;
 }
+
+*/

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Foster.Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeFileReference Include="..\Platform\libs\emscripten-wasm32\libFosterPlatform.a">
+      <Visible>false</Visible>
+    </NativeFileReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="js\" />
+  </ItemGroup>
+</Project>
